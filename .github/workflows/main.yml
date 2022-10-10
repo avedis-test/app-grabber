@@ -19,6 +19,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
+      - uses: tibdex/github-app-token@v1
+        id: get_installation_token
+        with: 
+          app_id: 239964
+          # installation_id not needed IF the app is installed on this current repo
+#           installation_id: 29881931
+          private_key: ${{ secrets.APP_SECRET_KEY }}
+    
       - uses: actions/checkout@v3
       
       - name: terraform init
