@@ -19,7 +19,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     
-      - uses: avedismanifold/github-app-token
+      - uses: avedismanifold/github-app-token@HEAD
         id: generate_token
         with: 
           app_id: 239964
