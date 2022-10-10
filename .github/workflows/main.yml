@@ -20,7 +20,7 @@ jobs:
     steps:
     
       - uses: tibdex/github-app-token@v1
-        id: get_installation_token
+        id: generate_token
         with: 
           app_id: 239964
           # installation_id not needed IF the app is installed on this current repo
@@ -32,4 +32,6 @@ jobs:
       - name: terraform init
         run: terraform init
         working-directory: "."
+        env:
+          TOKEN: ${{ steps.generate_token.outputs.token }}
       
